@@ -1,0 +1,136 @@
+package mvvm.player
+
+import TAG
+import android.os.Bundle
+import android.util.Log
+import com.example.demoapp.R
+import kotlinx.android.synthetic.main.activity_player.*
+
+//class PlayerActivity : AppCompatActivity(), IPlayerCallback { // 数据驱动不需要callback
+class PlayerActivity : BaseActivity() {
+
+    //  改单例前
+//    private val playerPresenter by lazy {
+//        PlayerPresenter()
+//    }
+
+    private val playerPresenter by lazy {
+        PlayerPresenter(this)
+    }
+
+    init {
+        //addLifeCycleListen(playerPresenter)
+        //lifeCycleProvider.addLifeCycleListen(playerPresenter)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_player)
+
+
+        initListener()
+        //      数据驱动不需要这些
+//        playerPresenter.registerCallback(this)
+
+        initDataListener()
+    }
+
+    /**
+     * @name PlayerActivity
+     * @describe 对数据进行监听
+     * @author liangxy
+     * @time 2022/6/22 9:48
+     *
+     */
+    private fun initDataListener() {
+//        playerPresenter.currentMusic.addListener {
+//            //音乐内容发生变化,更新uI
+//            tvTitle.text = it?.name
+//
+//            println("封面改了。。。${it?.cover}")
+//        }
+        playerPresenter.currentMusic.observe(this) {
+            //音乐内容发生变化,更新uI
+            tvTitle.text = it?.name
+            println("封面改了。。。${it?.cover}")
+        }
+        playerPresenter.currentPlayState.addListener {
+            when (it) {
+                PlayerPresenter.PlayState.PAUSED -> {
+//                    btn_play_or_pause.text = "播放"
+                    btn_play_or_pause.text = "正在暂停点击播放"
+                    Log.d(
+                        TAG,
+                        "initDataListener: "
+                    )
+                }
+
+                PlayerPresenter.PlayState.PLAYING -> {
+//                    btn_play_or_pause.text = "暂停"
+                    btn_play_or_pause.text = "正在播放点击暂停"
+                    Log.e(
+                        TAG,
+                        btn_play_or_pause.text.toString()
+                    )
+                    Log.e(
+                        TAG,
+                        playerPresenter.currentPlayState.value.toString()
+                    )
+                }
+
+                else -> {
+
+                }
+            }
+        }
+
+    }
+
+
+    //给控件设置点击事件
+    private fun initListener() {
+        btn_play_or_pause.setOnClickListener {
+            //调用presenter层的播放或者暂停方法
+            playerPresenter.doPlayOrPause()
+        }
+        btn_next.setOnClickListener {
+            //调用presenter层的播放或者暂停方法
+            playerPresenter.playNext()
+        }
+        btn_pre.setOnClickListener {
+            //调用presenter层的播放或者暂停方法
+            playerPresenter.playPre()
+        }
+    }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+//        playerPresenter.unregisterCallback(this)
+    }
+
+    /*
+    数据驱动不需要了
+     override fun onTitleChange(title: String) {
+            tvTitle?.text = title
+        }
+
+        override fun pnProgressChange(current: Int) {
+            TODO("Not yet implemented")
+        }
+
+        override fun onPlaying() {
+            //播放中--->显示暂停
+            btn_play_or_pause.text = "暂停"
+  //          tvTitle?.text = "暂停"
+        }
+
+        override fun onPlayerPause() {
+            //暂停-->显示播放
+            btn_play_or_pause.text = "播放"
+        }
+
+        override fun onCoverChange(cover: String) {
+            println("cover change")
+        }*/
+}

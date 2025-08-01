@@ -1,0 +1,159 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android-extensions'
+    id 'com.google.protobuf'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdk 34
+    defaultConfig {
+        applicationId "com.example.demoapp"
+        minSdk 28
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            cmake {
+                cppFlags ''
+            }
+        }
+    }
+
+    buildFeatures {
+        aidl true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.3.0'
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    externalNativeBuild {
+        cmake {
+            path file('src/main/cpp/CMakeLists.txt')
+            version '3.18.1'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+    viewBinding {
+        enabled = true
+    }
+    buildFeatures {
+        viewBinding = true
+    }
+    sourceSets {
+        main {
+            //实际测试指不指定无所谓，不影响 Java 文件生成
+            proto {
+                srcDir 'src/main/proto'
+            }
+            jniLibs.srcDirs 'native_libs'
+        }
+    }
+}
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.21.1"
+    }
+    plugins {
+        grpc {
+            artifact = 'io.grpc:protoc-gen-grpc-java:1.49.0'
+        }
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                java { option 'lite' }
+            }
+            task.plugins {
+                grpc { option 'lite' }
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.activity:activity:1.8.0'
+    def lifecycle_version = "2.4.0" // 这里的版本号仅为示例，请使用最新的版本
+    //implementation files('libs/voice-manager.aar')
+    implementation "com.google.dagger:hilt-android:2.43.2"
+    kapt "com.google.dagger:hilt-compiler:2.43.2"
+    implementation files('libs/VoiceManager.aar')
+    implementation files('libs/click-what-see.aar')
+    implementation 'androidx.core:core-ktx:1.7.10'
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'junit:junit:4.12'
+    implementation 'com.github.houbb:pinyin:0.4.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1"
+    implementation "androidx.lifecycle:lifecycle-process:2.4.1"
+    implementation "com.squareup.okhttp3:okhttp:4.9.3"
+    implementation 'com.squareup.retrofit2:retrofit:2.6.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
+    implementation 'com.github.anrwatchdog:anrwatchdog:1.4.0'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3'
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+    implementation 'com.github.biubiuqiu0:flow-event-bus:1.0.1'
+    implementation 'io.github.jeremyliao:live-event-bus-x:1.8.0'
+    // Optional -- Mockito framework（可选，用于模拟一些依赖对象，以达到隔离依赖的效果）
+    testImplementation 'org.mockito:mockito-core:2.19.0'
+    implementation 'com.github.open-android:pinyin4j:2.5.0'
+    implementation 'com.github.promeg:tinypinyin:2.0.3'
+    implementation 'com.github.promeg:tinypinyin-lexicons-android-cncity:2.0.3'
+    implementation 'com.github.getActivity:XXPermissions:18.6'
+// You need to build grpc-java to obtain these libraries below.
+    implementation 'io.grpc:grpc-okhttp:1.49.0'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    implementation 'io.grpc:grpc-protobuf-lite:1.49.0'
+    implementation 'io.grpc:grpc-stub:1.49.0'
+    implementation 'org.apache.tomcat:annotations-api:6.0.53'
+    implementation 'org.apache.tomcat:annotations-api:6.0.53'
+    implementation files('libs/soaclient.jar')
+    implementation files('libs/jnidds.jar')
+
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-graphics'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    implementation 'androidx.compose.material:material'
+    implementation 'io.coil-kt:coil-compose:2.4.0'
+    androidTestImplementation platform('androidx.compose:compose-bom:2023.08.00')
+    androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
+    debugImplementation 'androidx.compose.ui:ui-tooling'
+    debugImplementation 'androidx.compose.ui:ui-test-manifest'
+    implementation "androidx.constraintlayout:constraintlayout-compose:1.0.1"
+    implementation 'androidx.activity:activity-compose:1.7.0'
+    //implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2'
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.6.2"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2"
+}

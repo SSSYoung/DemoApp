@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.demoapp">
+
+    <application
+        android:name="mvvm.SysApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.DemoApp"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".WebSocketActivity"
+            android:exported="false" />
+        <activity
+            android:name="coroutine.CoroutineTestActivity"
+            android:exported="false" />
+        <activity
+            android:name="coroutine.CoroutineActivity1"
+            android:exported="false" />
+        <activity
+            android:name=".hilt.HiltActivity"
+            android:exported="false" />
+        <activity
+            android:name="voice.VoiceIpcActivity"
+            android:exported="false" />
+        <activity
+            android:name=".compose.ComposeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".accessibility.AccessibilityActivity"
+            android:exported="false" />
+        <activity
+            android:name=".soa.SoaActivity"
+            android:exported="false" />
+        <activity
+            android:name="grpc.GRPCActivity"
+            android:exported="false" />
+        <activity
+            android:name="contact.ContactActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PinyinActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UnitTestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GsonTestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ipc.IpcActivity"
+            android:exported="false" />
+        <activity
+            android:name="flow.SharedFlowActivity"
+            android:exported="false" />
+        <activity
+            android:name="flow.FlowActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CameraXActivity"
+            android:exported="false" />
+        <activity
+            android:name="network.OkHttpActivity"
+            android:exported="false" />
+        <activity
+            android:name="network.NetWorkTestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AnrDemoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customview.HistogramActivity"
+            android:exported="false" />
+        <activity
+            android:name=".gpu.GpuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".JNICLearnActivity"
+            android:exported="false" />
+        <activity
+            android:name="mvvm.player.PlayerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customview.CustomViewActivity"
+            android:exported="false" />
+        <activity
+            android:name="camera2.Camera2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".jetpackdemo.JniActivity"
+            android:exported="false" />
+        <activity
+            android:name=".jetpackdemo.ViewModelDemoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".jetpackdemo.LiveDataForMapActivity"
+            android:exported="false" />
+        <activity
+            android:name=".jetpackdemo.LiveDataActivity"
+            android:exported="false" />
+        <activity
+            android:name=".jetpackdemo.LifeCycleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TestActivity"
+            android:exported="false" />
+        <activity
+            android:name="flow.SecondActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WebViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FirstActivity"
+            android:exported="false" />
+        <activity
+            android:name=".gpu.GpuActivity"
+            android:exported="false" />
+        <activity
+            android:name="widgetlearn.WidgetTestActivity"
+            android:exported="false" />
+        <activity
+            android:name="widgetlearn.MessengerActivity"
+            android:exported="false" />
+        <activity
+            android:name="widgetlearn.LifecyleTestActivity"
+            android:exported="false" />
+        <activity
+            android:name="test.KotlinTestActivity"
+            android:exported="false" />
+        <activity
+            android:name="anr.AnrDemoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NetWorkTestActivity"
+            android:exported="false" />
+        <activity
+            android:name="coroutine.CoroutineActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name="widgetlearn.MyReceiver"
+            android:enabled="true"
+            android:exported="false" />
+        <receiver
+            android:name=".MyReceiver"
+            android:enabled="true"
+            android:exported="true" /> <!-- <service -->
+        <!-- android:name=".accessibility.MyAccessibilityService" -->
+        <!-- android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" -->
+        <!-- android:exported="true"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.accessibilityservice.AccessibilityService" /> -->
+        <!-- </intent-filter> -->
+        <!-- <meta-data -->
+        <!-- android:name="android.accessibilityservice" -->
+        <!-- android:resource="@xml/accessibility_service_config" /> -->
+        <!-- </service> -->
+        <receiver
+            android:name=".accessibility.DebugBoardcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.demoapp.action.DEBUG" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".ipc.MyIpcService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".accessibility.MyAccessibilityService"
+            android:enabled="true"
+            android:exported="true"
+            android:label="@string/accessibility_service_label"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            tools:ignore="Instantiatable,WrongManifestParent">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessible_service_config_jump_ad" />
+        </service>
+        <service
+            android:name="widgetlearn.MyIntentService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.demoapp" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="widgetlearn.MessengerService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.demoapp.messenger" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="widgetlearn.TestService"
+            android:exported="true" />
+    </application>
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+</manifest>

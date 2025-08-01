@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/btn_hilt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="hilt test"/>
+        <Button
+            android:id="@+id/btn_voice_manager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="语音aar IPC通信包demo"/>
+
+        <Button
+            android:id="@+id/compose_learn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="compose学习"/>
+
+        <Button
+            android:id="@+id/button_wuzhangai"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="无障碍模式"/>
+        <Button
+            android:id="@+id/button_soa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="soa"/>
+        <Button
+            android:id="@+id/button_0"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="拼音测试"/>
+        <Button
+            android:id="@+id/button_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="联系人"/>
+
+        <Button
+            android:id="@+id/getAppDataBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Get App Data" />
+
+        <Button
+            android:id="@+id/button_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Activity跳转" />
+        <Button
+            android:id="@+id/button_25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="gRPC demo" />
+        <Button
+            android:id="@+id/button_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="lifeCycle Demo" />
+        <Button
+            android:id="@+id/button_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LiveData demo" />
+        <Button
+            android:id="@+id/button_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Livedata 操作符" />
+        <Button
+            android:id="@+id/button_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ViewModel Demo" />
+        <Button
+            android:id="@+id/button_6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="JNI测试" />
+        <Button
+            android:id="@+id/button_7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="相机测试" />
+        <Button
+            android:id="@+id/button_8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MVVM" />
+        <Button
+            android:id="@+id/button_9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="自定义控件" />
+        <Button
+            android:id="@+id/button_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="JNI和c语言学习" />
+        <Button
+            android:id="@+id/button_11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="GPU设置" />
+        <Button
+            android:id="@+id/button_12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="直方图" />
+        <Button
+            android:id="@+id/button_13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="四大组件学习" />
+        <Button
+            android:id="@+id/button_14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="生命周期" />
+        <Button
+            android:id="@+id/button_15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="KotlinDemo" />
+        <Button
+            android:id="@+id/button_16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="模拟ANR" />
+        <Button
+            android:id="@+id/button_17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="网络编程" />
+        <Button
+            android:id="@+id/button_18"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="okhttp相关" />
+        <Button
+            android:id="@+id/button_19"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="无障碍模式" />
+        <Button
+            android:id="@+id/button_20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="flowTest" />
+
+        <Button
+            android:id="@+id/button_21"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="冷流和热流" />
+        <Button
+            android:id="@+id/button_22"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="IPC Test" />
+        <Button
+            android:id="@+id/button_23"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="gson Test" />
+        <Button
+            android:id="@+id/button_24"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="单元测试"/>
+
+        <Button
+            android:id="@+id/button_26"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="WebSocket"/>
+
+        <Button
+            android:id="@+id/coroutineTest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="协程原理"/>
+    </LinearLayout>
+
+</ScrollView>

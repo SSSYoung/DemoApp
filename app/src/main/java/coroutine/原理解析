@@ -1,0 +1,78 @@
+https://juejin.cn/post/6898266009812566030
+@Metadata(
+   mv = {1, 7, 0},
+   k = 1,
+   xi = 48,
+   d1 = {"\u0000\u001a\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u000e\u0010\u0003\u001a\u00020\u0004H\u0082@¢\u0006\u0002\u0010\u0005J\u0012\u0010\u0006\u001a\u00020\u00042\b\u0010\u0007\u001a\u0004\u0018\u00010\bH\u0014¨\u0006\t"},
+   d2 = {"Lcoroutine/CoroutineTestActivity;", "Landroidx/appcompat/app/AppCompatActivity;", "()V", "a", "", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "onCreate", "savedInstanceState", "Landroid/os/Bundle;", "app_debug"}
+)
+@StabilityInferred(
+   parameters = 1
+)
+public final class CoroutineTestActivity extends AppCompatActivity {
+   public static final int $stable;
+
+   protected void onCreate(@Nullable Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+
+      // 1. 启动一个协程
+      BuildersKt.launch$default(
+          (CoroutineScope) LifecycleOwnerKt.getLifecycleScope((LifecycleOwner) this), // 使用 LifecycleOwner 的协程作用域
+          (CoroutineContext) null, // 使用默认的协程上下文（Main dispatcher）
+          (CoroutineStart) null, // 使用默认的启动模式
+          (Function2) (new Function2((Continuation) null) { // 定义协程体
+
+         int label; // 2. 协程状态机的状态标签
+
+         // 3. 协程挂起和恢复的核心方法
+         public final Object invokeSuspend(Object $result) {
+            Object var2 = IntrinsicsKt.getCOROUTINE_SUSPENDED(); // 4. 获取协程挂起标志
+            switch (this.label) { // 5. 状态机根据 label 决定执行的代码块
+               case 0: // 初始状态
+                  ResultKt.throwOnFailure($result); // 6. 检查上一个结果是否成功
+
+                  CoroutineTestActivity var10000 = CoroutineTestActivity.this; // 7. 访问外部类 CoroutineTestActivity 实例
+                  Continuation var10001 = (Continuation) this;
+                  this.label = 1; // 8. 设置下一状态
+
+                  // 9. 调用外部类的 'a' 方法并挂起当前协程
+                  if (var10000.a(var10001) == var2) {
+                     return var2; // 如果挂起，返回挂起标志
+                  }
+                  break;
+               case 1: // 恢复后的状态
+                  ResultKt.throwOnFailure($result); // 10. 恢复后继续检查结果
+                  break;
+               default:
+                  throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine"); // 11. 非法状态异常
+            }
+
+            return Unit.INSTANCE; // 12. 返回协程执行结果
+         }
+
+         // 13. 创建新的 Continuation 对象，用于保存协程状态
+         public final Continuation create(Object value, Continuation $completion) {
+            return (Continuation) (new <anonymous constructor>($completion));
+         }
+
+         // 14. invoke 方法用于启动协程的执行
+         public final Object invoke(CoroutineScope p1, Continuation p2) {
+            return ((<undefinedtype>) this.create(p1, p2)).invokeSuspend(Unit.INSTANCE);
+         }
+
+         // 15. 用于处理多态情况的桥接方法，主要用于编译时的类型擦除
+         public Object invoke(Object p1, Object p2) {
+            return this.invoke((CoroutineScope) p1, (Continuation) p2);
+         }
+      }),
+      3, // 使用 Dispatchers.Default 作为调度器
+      (Object) null); // 16. 补全最后的参数（默认值处理）
+   }
+
+   // 17. 一个在协程中调用的私有方法 'a'，它简单地输出 "aa"
+   private final Object a(Continuation $completion) {
+      String var2 = "aa";
+      System.out.println(var2);
+      return Unit.INSTANCE; // 18. 返回 Unit 表示方法无返回值
+   }
+}

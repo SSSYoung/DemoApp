@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">DemoApp</string>
+    <string name="picture">Picture</string>
+    <string name="description_info">Info</string>
+    <string name="request_permission">This sample needs camera permission.</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
+    <string name="login">登录</string>
+    <string name="account">账号</string>
+    <string name="input_pwd">请输入密码</string>
+    <string name="next_song">下一首</string>
+    <string name="pre_song">上一首</string>
+    <string name="play">播放</string>
+    <string name="get_music_list">获取音乐列表</string>
+    <string name="accessibility_service_label">平行生态无障碍</string>
+    <string name="accessibility_desc">accessibility_desc</string>
+</resources>
