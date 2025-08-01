@@ -4,6 +4,9 @@ pluginManagement {
         google()
         mavenCentral()
     }
+    plugins {
+        id 'org.jetbrains.kotlin.jvm' version '1.9.23'
+    }
 }
 //dependencyResolutionManagement {
 //    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -15,3 +18,4 @@ pluginManagement {
 rootProject.name = "DemoApp"
 include ':app'
 include ':console'
+include ':algotest'
