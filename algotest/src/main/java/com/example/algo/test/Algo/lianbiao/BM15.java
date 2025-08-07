@@ -19,7 +19,7 @@ class BM15 {
         ListNode nextHead = head.next;
 
         while (curHead != null && nextHead != null) {
-            if (curHead.val == nextHead.val) {
+            if (curHead.value == nextHead.value) {
                 //断开链表
                 curHead.next = nextHead.next;
                 nextHead = nextHead.next;

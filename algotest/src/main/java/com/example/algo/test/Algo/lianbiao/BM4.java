@@ -18,7 +18,7 @@ class BM4 {
         ListNode dummyNode = new ListNode(-1);
         ListNode result = dummyNode;
         while ((pHead1 != null) && (pHead2 != null)) {
-            if (pHead1.val < pHead2.val) {
+            if (pHead1.value < pHead2.value) {
                 dummyNode.next = pHead1;
                 dummyNode = dummyNode.next;
                 pHead1 = pHead1.next;

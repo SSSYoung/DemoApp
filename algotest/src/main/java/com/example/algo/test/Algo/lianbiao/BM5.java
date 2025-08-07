@@ -38,7 +38,7 @@ class BM5 {
         ListNode dummy = new ListNode(-1);
         ListNode result = dummy;
         while ((list1 != null) && (list2 != null)) {
-            if (list1.val < list2.val) {
+            if (list1.value < list2.value) {
                 dummy.next = list1;
                 dummy = dummy.next;
                 list1 = list1.next;

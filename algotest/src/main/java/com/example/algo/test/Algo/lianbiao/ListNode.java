@@ -2,15 +2,15 @@ package com.example.algo.test.Algo.lianbiao;
 
 
 public class ListNode {
-    public int val;
+    public int value;
     public ListNode next = null;
 
-    public ListNode(int val) {
-        this.val = val;
+    public ListNode(int value) {
+        this.value = value;
     }
 
-    public ListNode(int val, ListNode next) {
-        this.val = val;
+    public ListNode(int value, ListNode next) {
+        this.value = value;
         this.next = next;
     }
 
@@ -18,7 +18,7 @@ public class ListNode {
         StringBuilder stringBuilder = new StringBuilder();
         ListNode tmp = node;
         while (tmp != null) {
-            stringBuilder.append(tmp.val).append(",");
+            stringBuilder.append(tmp.value).append(",");
             tmp = tmp.next;
         }
 

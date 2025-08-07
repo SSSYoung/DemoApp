@@ -47,12 +47,12 @@ class BM11 {
         while (tmp1 != null || tmp2 != null || carry != 0) {
             int value1 = 0;
             if (tmp1 != null) {
-                value1 = tmp1.val;
+                value1 = tmp1.value;
             }
 
             int value2 = 0;
             if (tmp2 != null) {
-                value2 = tmp2.val;
+                value2 = tmp2.value;
             }
 
             int rst = value1 + value2 + carry;

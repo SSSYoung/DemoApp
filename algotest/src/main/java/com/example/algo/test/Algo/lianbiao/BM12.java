@@ -22,7 +22,7 @@ class BM12 {
         ArrayList<Integer> list = new ArrayList<>();
         ListNode tmp = head;
         while (tmp != null) {
-            list.add(tmp.val);
+            list.add(tmp.value);
             tmp = tmp.next;
         }
 
@@ -30,7 +30,7 @@ class BM12 {
         Collections.sort(list);
         ListNode tmp1 = head;
         while (tmp1 != null) {
-            tmp1.val = list.remove(0);
+            tmp1.value = list.remove(0);
             tmp1 = tmp1.next;
         }
 

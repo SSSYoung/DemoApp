@@ -19,8 +19,8 @@ class BM16 {
         //ListNode next = head.next;
 
         while (cur != null && cur.next != null) {
-            if (cur.val == cur.next.val) {
-                while (cur != null && cur.next != null && cur.val == cur.next.val) {
+            if (cur.value == cur.next.value) {
+                while (cur != null && cur.next != null && cur.value == cur.next.value) {
                     cur = cur.next;
                 }
                 cur = cur.next;
