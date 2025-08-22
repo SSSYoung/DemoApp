@@ -11,10 +11,57 @@ import java.util.Stack
 object Leetcode144 {
     val result = arrayListOf<Int>()
     fun preorderTraversal(root: TreeNode?): List<Int> {
-        val stack = Stack<TreeNode>()
+       if (root == null) {
+            return result
+       }
 
-        while ()
+        // 统一迭代法
+        val stack = Stack<Command>()
 
+        stack.push(Command("go",root))
+        while (stack.isNotEmpty()) {
+            val pop = stack.pop()
+            if (pop.type == "print") {
+                result.add(pop.node.`val`)
+            } else{
+                pop.node.right?.let {
+                    stack.push(Command("go", it))
+                }
+
+                pop.node.left?.let {
+                    stack.push(Command("go", it))
+                }
+
+                pop.node.let {
+                    stack.push(Command("print", it))
+                }
+            }
+        }
+
+        return result
+
+        //普通迭代
+//        if (root == null) {
+//            return result
+//        }
+//
+//        val stack = Stack<TreeNode>()
+//
+//        stack.push(root)
+//
+//        while (stack.isNotEmpty()) {
+//            val pop = stack.pop()
+//
+//            result.add(pop.`val`)
+//
+//            if (pop.right != null) {
+//                stack.push(pop.right)
+//            }
+//
+//            if (pop.left != null) {
+//                stack.push(pop.left)
+//            }
+//        }
         //递归
 //        val cur = root
 //
@@ -30,7 +77,6 @@ object Leetcode144 {
 //        }
 //
 //        return result
-
     }
 }
 
